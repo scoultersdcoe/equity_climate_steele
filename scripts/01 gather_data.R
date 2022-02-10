@@ -1,5 +1,6 @@
 library(qualtRics) #https://cran.r-project.org/web/packages/qualtRics/vignettes/qualtRics.html
 library(here)
+library(tidyverse)
 
 qualtrics_api_credentials(api_key = "XJ0XDiedax2UyvMH0UDJxaFbk5E2ZZlvgI8Vl4VU", 
                           base_url = "iad1.qualtrics.com",

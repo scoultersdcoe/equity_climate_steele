@@ -1,0 +1,178 @@
+---
+header-includes:
+- \input{preamble.tex}
+fontsize: 11pt
+output: pdf_document
+sansfont: Roboto
+font:     Roboto
+geometry: "left=1in,right=1in,top=0.35in,bottom=0.6in"
+urlcolor: #169d62
+---
+
+\raggedright
+
+```{r rmarkdown-setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(dev = "cairo_pdf")
+options(knitr.kable.NA = "")
+options(kableExtra.latex.load_packages = FALSE)
+
+library(tidyverse)
+library(here)
+library(knitr)
+library(kableExtra)
+library(sdcoethemes)
+
+set_sdcoe_defaults(style = "print")
+```
+
+\sdcoelogo{}
+
+\vspace{5mm}
+\sdcoetitle{SDCOE School Climate Survey}
+\sdcoeauthors{Shannon Coulter, Director of Research and Evaluation}
+
+\vspace{5mm}
+\begin{adjustwidth}{50pt}{50pt}
+The 2021 SDCOE School Climate Survey is a voluntary and confidential survey, open to all schools and students across the county. The survey is meant to provide direct feedback to administrators and teachers on a series of key issues facing our schools and classrooms.
+
+The survey is conducted in partnership with the Equity Department at SDCOE led by Dr. Fabiola Bagula. For a complete list of topics and downloadable questionnaires, please visit SDCOE's Research and Evaluation Website, where you can read the survey overview, or direct further questions about survey administration to [Shannon Coulter](mailto:scoulter@sdcoe.net), Director of Research and Evaluation.
+
+\end{adjustwidth}
+
+\contactinfo{}
+
+\newpage{}
+\newgeometry{left=1in,right=1in,top=1in,bottom=1.5in}
+
+\sdcoeheadingone{Participation Rate}
+
+We engaged over 400 students of 1641 at Helix School. Survey results are available when response rates include more than 10 students.
+
+\sdcoefigurenumber{1}
+\sdcoefiguretitle{While Most College Students Stay Close to Home, Graduates Enroll in Colleges and Universities Across the Country}
+
+```{r enroll-map}
+
+```
+\sdcoesource{National Student Clearinghouse StudentTracker Report.}
+\sdcoenote{We used geospatial data to identify the location of each college or university where graduates from the Class of 2021 enrolled. We mapped each student to his or her respective college or university, darker dot patterns represent areas where more students attend college.}
+
+\newpage{}
+\newgeometry{left=1in,right=1in,top=1in,bottom=1.5in}
+
+\sdcoeheadingtwo{Sense of Belonging}
+
+For the first time in eight years more students enrolled in four-year institutions (8,725) compared to 2-year (7,285). Some local community colleges suffered enrollment loses upwards of 25% in 2021, while the University of California-San Diego reported a 33% increase in enrollment. These variations in enrollment patterns have the greatest impact on lower-income students whose enrollment declines were double other student groups according to the National Student Clearinghouse.
+
+\vspace{3mm}
+\sdcoefigurenumber{1}
+\sdcoefiguretitle{Students Experience High Sense of Belonging}
+\sdcoefiguresubtitle{Stduents feel respected and valued at school}
+
+```{r sense-belong, fig.width=10}
+source(here("scripts", "04 belong.R"))
+```
+\sdcoesource{San Diego County Office of Education Equity Survey.}
+
+\newpage{}
+\newgeometry{left=1in,right=1in,top=1in,bottom=1.5in}
+
+\sdcoeheadingtwo{School Culture}
+
+The overall number of students enrolled in college continued to decline in 2021. Current enrollment figures may adjust upwards slightly after we update the report using spring enrollment data. We should caution the reader in making comparisons between the current and prior years given the preliminary nature of the data.  However, as indicated in the chart below, college going rates have declined from 78% percent of the Class of 2014 (39,988 students) attending college to only 65% percent of the Class of 2020 (40,285) attending. Additionally, the number of students not enrolled in college has increased by 50 percent over that same time frame.
+
+\sdcoefigurenumber{2}
+\sdcoefiguretitle{Many Students Find Association with Self in School}
+\vspace{3mm}
+
+```{r culture}
+source(here("scripts", "04a look.R"))
+```
+\sdcoesource{San Diego County Office of Education Equity Survey.}
+
+
+\newpage{}
+\newgeometry{left=1in,right=1in,top=1in,bottom=1.5in}
+
+\sdcoeheadingone{Feeling Uncomfortable}
+
+Despite the pandemic, students who enroll in college tend to stay. Some stay at their original institution (retention) while others opt to attend college elsewhere (persistence). Similar to other recent trends, the persistence and retention percentages declined for the Class of 2020. About 4 in 5 enrolled students remained enrolled from year to year.
+
+\sdcoefigurenumber{3}
+\sdcoefiguretitle{Students Feel Safe in School}
+\sdcoefiguresubtitle{Most students feel comfortable in school and set to learn}
+\vspace{3mm}
+
+```{r uncomfortable}
+source(here("scripts", "04b uncom.R"))
+```
+\sdcoesource{San Diego County Office of Education Equity Survey.}
+
+
+\newpage{}
+\newgeometry{left=1in,right=1in,top=1in,bottom=1.5in}
+
+\sdcoeheadingone{Unsafe}
+
+While the pandemic has made no discernible difference on college completion rates yet, only a  small number of students actually earn college degrees. About 18% of the Class of 2017 has earned a college degree, while 25% of the Class of 2015 earned a degree. We know that degree completers earn more on average than non-college graduates, and that we need a certain level of degree completers for our economy to thrive. While the percentage of students earning degrees compared to those enrolled may not change much in the coming years, we might have significantly fewer students earning degrees in the future based on our current enrollment levels.
+
+\sdcoefigurenumber{4}
+\sdcoefiguretitle{Only 1 in 4 San Diego Students Earn a College Degree}
+\sdcoefiguresubtitle{The percentange of students completing degrees in four and six years remains low}
+```{r unsafe}
+source(here("scripts", "04c unsafe.R"))
+```
+\sdcoesource{San Diego County Office of Education Equity Survey.}
+
+
+\newpage{}
+\newgeometry{left=1in,right=1in,top=1in,bottom=1.5in}
+
+\sdcoeheadingtwo{Harassment}
+
+Business Administration degrees top the list as the most popular college choice followed by Psychology and Computer Science. Because earnings vary based on the type of degree students get, several organizations including [College Scorecard](https://collegescorecard.ed.gov/) and [Salary Surfer](https://salarysurfer.cccco.edu/SalarySurfer.aspx) provide valuable information linking college degrees to the median salaries of graduates. Surprisingly the average salary for some Associate's degrees are as much if not more than comparable Bachelor's degrees. Using earnings information can help reduce some students' fears and hesitations about enrolling in college.
+
+\sdcoefigurenumber{5}
+\sdcoefiguretitle{2014 Graduates Earned Nearly 7500 Degrees}
+\sdcoefiguresubtitle{Many students earn two-year degrees in same time some students earn four-year degrees}
+
+```{r harass}
+source(here("scripts", "04d harass.R"))
+```
+\sdcoesource{San Diego County Office of Education Equity Survey.}
+
+
+\newpage{}
+\newgeometry{left=1in,right=1in,top=1in,bottom=1.5in}
+
+\sdcoeheadingtwo{Friendships}
+
+Business Administration degrees top the list as the most popular college choice followed by Psychology and Computer Science. Because earnings vary based on the type of degree students get, several organizations including [College Scorecard](https://collegescorecard.ed.gov/) and [Salary Surfer](https://salarysurfer.cccco.edu/SalarySurfer.aspx) provide valuable information linking college degrees to the median salaries of graduates. Surprisingly the average salary for some Associate's degrees are as much if not more than comparable Bachelor's degrees. Using earnings information can help reduce some students' fears and hesitations about enrolling in college.
+
+\sdcoefigurenumber{6}
+\sdcoefiguretitle{2014 Graduates Earned Nearly 7500 Degrees}
+\sdcoefiguresubtitle{Many students earn two-year degrees in same time some students earn four-year degrees}
+
+```{r friend}
+source(here("scripts", "04e friend.R"))
+```
+\sdcoesource{San Diego County Office of Education Equity Survey.}
+
+
+\newpage{}
+\newgeometry{left=1in,right=1in,top=1in,bottom=1.5in}
+
+\sdcoeheadingone{Final Thoughts}
+
+Imagine you are one of the 40,648 graduating seniors from one of San Diego's 175 high schools. Going to college may have been an aspiration of yours for as long as you can remember. How do you feel right now? Perhaps you were already worried about how to pay for college, making friends, or failing a class. Now you may also be anxious about how the pandemic has changed your college dreams. What would it take to allay your fears and get you back on track for postsecondary options?
+
+The fact is that Omicron or Covid-19 will have an impact on college-going for some time. We cannot end the pandemic as a solution to improving college access. The best chance we have of ending this enrollment crisis is to build stronger relationships with students and to provide them with information about their college-going options that is informative and keeps them progressing in the process. Additionally, we need to continue to understand the social and emotional stressors they experience in the process and  work to mitigate these challenges. Going to college is not something we can leave to chance. 
+
+Everyone reading this report is an important decision-maker in his or her organization—many are directly responsible for college access. I urge you to stay informed about shifts in college enrollment patterns and invest in strategies that address students' fears and hesitations about enrolling in college. This group of high school graduates may be the most resilient of any other cohort before them. We must honor their experiences because they have truly paid a much greater price to achieve their aspirations than any of us every have or possibly will.
+
+
+\sdcoeboilerplate{SDCOE's Assessment, Accountability, and Evaluation Department}{January}{2022}
+

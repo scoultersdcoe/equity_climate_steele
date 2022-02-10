@@ -1,0 +1,196 @@
+% explicitly call these packages to avoid this issue:
+% https://stackoverflow.com/questions/46080853/why-does-rendering-a-pdf-from-rmarkdown-require-closing-rstudio-between-renders?
+% utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{color}          % enables font colors
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage[normalem]{ulem}
+\usepackage[export]{adjustbox}  % enables two column images at the top
+\usepackage{makecell}           % for library(kableExtra)
+\usepackage{changepage}
+\usepackage{type1cm}
+\usepackage{lettrine}
+\renewcommand{\LettrineFontHook}{\color{sdcoeblue}}
+%\usepackage{tabularx}           % for library(kableExtra)
+
+% set font encoding for PDFLaTeX or XeLaTeX
+\usepackage[utf8]{inputenc}   % sets document encoding to utf8
+\usepackage[default]{roboto}    % sets default font to Roboto
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{memhfixc}
+\usepackage{amssymb}          % for itemized list styles
+
+% document setup
+\definecolor{sdcoeblue}{HTML}{005488}  % defines SDCOE's blue color (navy)
+\definecolor{sdcoelightblue}{HTML}{00AEFF} % defines SDCOE's light blue color
+\usepackage{enumitem}                   % bullet alignment
+\setlist[2]{nosep}                      % sets the itemsep and parsep for all level two lists to 0
+\setenumerate{nosep}                    % sets no itemsep for enumerate lists only
+\pagenumbering{gobble}                  % disable page numbering
+\usepackage[hang,flushmargin]{footmisc} % don't indent footnotes
+\usepackage[document]{ragged2e}         % ragged right
+\usepackage[none]{hyphenat}             % disable work breaks
+\renewcommand\thefootnote{\textcolor{sdcoeblue}{\arabic{footnote}}} % change the color of the footnote indicator
+\hypersetup{
+  colorlinks,
+  linkcolor=sdcoeblue,
+  urlcolor=sdcoeblue,
+}
+\usepackage{parskip}
+\setlength{\parskip}{0.1in}               % set paragraph spacing
+
+% sdcoe institute logo
+\newcommand{\sdcoelogo}[0]{
+  \begin{figure}
+    \hspace{-0.12in}
+    \includegraphics[width=3in]{design/SDCOE_logo_secondary.png}
+    \label{fig:boat1}
+  \end{figure}
+}
+
+
+% contact information
+\newcommand{\contactinfo}[0]{
+  \thispagestyle{empty}
+  \begin{tikzpicture}[remember picture, overlay]
+    \draw 
+      node[align=center, anchor=south west, minimum height=0.5in, minimum width=6.5in, text width=6in] at ($(current page.south west) + (1.05in,0.13in)$) 
+      {\color{gray}San Diego County Office of Education \space
+      \color{sdcoeblue}$\blacksquare$ \space
+      \color{gray}6411 Linda Vista Road \space
+      \color{sdcoeblue}$\blacksquare$ \space
+      \color{gray}San Diego, CA 92111 \space
+      \color{sdcoeblue}$\blacksquare$ \space
+      \color{gray}858.392.3500 \space
+      \color{sdcoeblue}$\blacksquare$ \space
+      \textcolor{sdcoeblue}{www.sdcoe.net}};
+  \end{tikzpicture}
+}
+
+% titles (14pt font)
+\newcommand{\sdcoetitle}[1]{
+  \begin{center}
+      \textbf{\LARGE{#1}}
+  \end{center}
+}
+  
+% subtitles (12pt font)
+\newcommand{\sdcoesubtitle}[1]{
+  \begin{center}
+    \Large{\textcolor{sdcoeblue}{#1}}
+    \vspace{0.25in}    
+  \end{center}
+}
+
+% authors (11pt font)
+\newcommand{\sdcoeauthors}[1]{
+  \begin{center}
+    \textit{\large{#1}}
+    \vspace{0.25in} 
+  \end{center}
+}
+
+% heading 1
+\newcommand{\sdcoeheadingone}[1]{
+  \textbf{\LARGE{\\} \large{#1}}
+}
+
+% heading 2
+\newcommand{\sdcoeheadingtwo}[1]{
+  \textbf{\textcolor{sdcoeblue}{#1}}
+}
+
+% figure label
+\newcommand{\sdcoefigurenumber}[1]{
+  \textcolor{sdcoelightblue}{\tiny{\\} \normalsize{FIGURE #1 \\}}
+}
+
+% figure title
+\newcommand{\sdcoefiguretitle}[1]{
+  \textbf{\normalsize{#1} \\}
+}
+
+% figure sub title
+\newcommand{\sdcoefiguresubtitle}[1]{
+  \textit{\normalsize{#1} \\}
+}
+
+% figure source
+\newcommand{\sdcoesource}[1]{
+  \footnotesize{\textbf{Source: }#1} \normalsize\break
+}
+
+% figure note
+\newcommand{\sdcoenote}[1]{
+  \footnotesize{\textbf{Note: }#1} \normalsize\break
+}
+
+% table label
+\newcommand{\sdcoetablenumber}[1]{
+  \textcolor{sdcoelightblue}{\tiny{\\} \normalsize{TABLE #1 \\}}
+}
+
+% table title
+\newcommand{\sdcoetabletitle}[1]{
+  \textbf{\normalsize{#1} \\}
+}
+
+% table sub title
+\newcommand{\sdcoetablesubtitle}[1]{
+  \textit{\normalsize{#1} \\}
+}
+
+% bullet points
+\renewcommand{\labelitemi}{\color{sdcoeblue}\tiny$\blacksquare$}   % blue square
+\renewcommand{\labelitemii}{\color{sdcoeblue}\tiny$\blacksquare$}  % blue square
+\renewcommand{\labelitemiii}{\color{sdcoeblue}\tiny$\blacksquare$} % blue square
+\renewcommand{\labelitemiv}{\color{sdcoeblue}\tiny$\blacksquare$}  % blue square
+
+\newenvironment{sdcoebullets}
+{\begin{itemize}[leftmargin=*,labelindent=0.25in,labelsep=0.1875in]
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}}
+{\end{itemize}} 
+
+% numbered list
+\newenvironment{sdcoeenumerate}
+{\begin{enumerate}[leftmargin=*,labelindent=0.25in,labelsep=0.15625in]
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}}
+{\end{enumerate}} 
+
+% boiler plate
+\newcommand{\sdcoeboilerplate}[3]{
+  \thispagestyle{empty}
+  
+  \begin{tikzpicture}[remember picture, overlay]
+    % horizontal line
+    \draw (current page.south west) + (1in,1.5in) -- ($(current page.south east) + (-1in, 1.5in)$);  
+    % boilerplate language
+    \draw 
+      node[align=left, anchor=south west, minimum height=0.5in, minimum width=8.5in, text width=6.5in] at ($(current page.south west) + (0in,0.38in)$) 
+      {
+      \small{This report was developed by #1. The views expressed are those of the author/authors and should not be attributed to SDCOE, its trustees, or its funders. Further information on SDCOE's mission is available at \href{https://www.sdcoe.net/superintendent/Pages/mission.aspx}{sdcoe.net/mission.}
+      
+      Copyright © #2 #3. San Diego County Office of Education. Permission is granted for reproduction of this report, with attribution to SDCOE.}
+      };
+      \end{tikzpicture}
+}
+
+% eliminates top border line for the table
+\def\toprule{}
+
+% sets midline at 1pt
+\setlength{\lightrulewidth}{1pt}
